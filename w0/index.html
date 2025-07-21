@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="viewport" content="user-scalable=no">
+    <script src="../bin/js/main.js"></script>
+    <link href="../bin/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/favicon.ico">
+    <title>XSS-0</title>
+  </head>
+  <body id="body_bg">
+    <div class="title">
+      <div class="title_text">クロスサイトスクリプティング攻撃 Part.0</div>
+      <hr>
+    </div>
+    <div class="chat" id="chat_bg">
+      <div class="chat-display" id="chat_display">
+        <div class="reload" id="reload">
+          <div class="receive">
+            <div>このページは，Part.1～Part.3で行ったすべて攻撃に対して対策をしています．</div>
+          </div>
+          </div>
+      </div>
+      <div class="editor">
+        <div id="e_m" class="e_m">
+          <textarea class="chat_editor_message" id="message" maxlength="250" placeholder="本文(250文字以内)" autocomplete="off" onkeyup="save()"></textarea>
+        </div>
+        <div id="e_b" class="e_b">
+          <img src="../bin/img/send.png" class="img" onclick="post()">
+        </div>
+      </div>
+    </div>
+    <script>var currentWork = 0;</script>
+    <footer>
+      <div class="footer-content">
+        <div>©WIM-CC 2022-2025 <a href="https://w-haruto.wim-cc.com/works/license/" target="_blank">利用規約</a></div>
+        <div>クロスサイトスクリプティング攻撃体験アプリ</div>
+      </div>
+    </footer>
+  </body>
+</html>

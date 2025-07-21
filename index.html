@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS攻撃体験アプリ - 目次</title>
+    <link rel="icon" href="/favicon.ico">
+    <style>
+      /* 目次ページ専用のシンプルデザイン */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        margin: 0;
+        padding: 40px 20px; /* 上下左右の余白 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        box-sizing: border-box;
+      }
+
+      .container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        max-width: 800px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      h1 {
+        color: #007bff;
+        margin-bottom: 25px;
+        font-size: 2.8em;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 15px;
+      }
+
+      .description {
+        font-size: 1.1em;
+        line-height: 1.7;
+        margin-bottom: 30px;
+        color: #555;
+      }
+
+      .xss-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .xss-list-item {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        padding: 25px;
+        text-align: left;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      .xss-list-item h3 {
+        color: #0056b3;
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 1.6em;
+        border-bottom: 1px dashed #ced4da;
+        padding-bottom: 8px;
+      }
+
+      .xss-list-item p {
+        font-size: 1em;
+        line-height: 1.6;
+        color: #495057;
+        margin-bottom: 15px;
+      }
+
+      .xss-list-item .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #28a745; /* 緑系のボタン */
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .xss-list-item .btn:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+      }
+
+      footer {
+        margin-top: 40px;
+        font-size: 0.9em;
+        color: #888;
+        text-align: center;
+      }
+
+      footer a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>XSS攻撃体験アプリ - 目次</h1>
+      <p class="description">
+        攻撃者の視点から、普段何気なく利用するWebサイトに潜在的に含むリスクについて学びましょう。<br>
+        Webサイトにコードを注入するクロスサイトスクリプティング（XSS）攻撃の様々な側面を体験できます。
+      </p>
+
+      <ul class="xss-list">
+        <li class="xss-list-item">
+          <h3>Part.1: Webサイトを利用不能にする (背景色の変更)</h3>
+          <p>HTMLの`&lt;style&gt;`タグを使ってページの背景色を変更し、Webサイトのデザインを破壊したり、利用不能にしたりする基本的なXSS攻撃を体験します。</p>
+          <a href="w1/index.html" class="btn">Part.1へ</a>
+        </li>
+        <li class="xss-list-item">
+          <h3>Part.2: 不正サイト（ワンクリック詐欺サイト）に誘導する (URLの埋め込み)</h3>
+          <p>Webサイトの表示内容に悪意のあるURLを埋め込み、ユーザーを不正なサイト（例：ワンクリック詐欺サイト）に誘導するXSS攻撃を体験します。リンクの危険性を学びます。</p>
+          <a href="w2/index.html" class="btn">Part.2へ</a>
+        </li>
+        <li class="xss-list-item">
+          <h3>Part.3: 不正サイト（偽サイト・サポート詐欺）に誘導する (JavaScriptの悪用)</h3>
+          <p>`&lt;b&gt;`タグなどのイベントハンドラ属性を悪用してJavaScriptを実行し、ユーザーを偽サイトやサポート詐欺サイトに誘導する、より高度なXSS攻撃を体験します。</p>
+          <a href="w3/index.html" class="btn">Part.3へ</a>
+        </li>
+        <li class="xss-list-item">
+          <h3>Part.0: 正しく対策するとどうなるか確認をする</h3>
+          <p>Part.1～Part.3で行ったすべての攻撃に対して対策が施された安全な環境です。あなたの投稿がどのように無害化されるかを確認し、適切なXSS対策について学びます。</p>
+          <a href="w0/index.html" class="btn">Part.0へ</a>
+        </li>
+      </ul>
+    </div>
+    <footer>
+      ©WIM-CC 2022-2025 <a href="https://w-haruto.wim-cc.com/works/license/" target="_blank">利用規約</a>
+    </footer>
+  </body>
+</html>

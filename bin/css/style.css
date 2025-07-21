@@ -1,0 +1,170 @@
+html, body {
+  width: 100%;
+  height: 100%; /* ビューポートの高さを100%にする */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* ★変更: body全体でスクロールさせず、chat-displayで管理 */
+}
+
+body {
+  display: flex; /* Flexboxレイアウトを有効にする */
+  flex-direction: column; /* 子要素を縦に並べる */
+  min-height: 100vh; /* ビューポートの高さ（画面の表示領域）を最低限確保 */
+  background-color: lightyellow;
+  font-family: sans-serif; /* フォントファミリーもここで定義 */
+  /* width: 100% はhtmlに定義済みなのでbodyから削除 */
+  /* margin-left: auto; margin-right: auto; は .chat で行う */
+}
+a,a:visited{
+  color: blue;
+}
+.title {
+    width: 100%; /* .chatの親（body）は100%なので子要素も100%に */
+    height: 60px; /* 固定 */
+    flex-shrink: 0; /* 縮まないように */
+}
+.title_text{
+  font-size: 30px;
+  text-align: center;
+}
+.chat {
+    width: 90%; /* ★変更：アプリ全体の幅を90%に */
+    margin: 0 auto; /* ★追加：左右中央寄せ */
+    height: auto; /* 残りのスペースを埋めるためauto */
+    flex-grow: 1; /* 残りの垂直方向スペースを占める */
+    display: flex; /* chat要素もFlexboxにして中身を配置 */
+    flex-direction: column;
+    position: relative;
+    background-color: deepskyblue;
+}
+.chat-display {
+    width: 100%;
+    flex-grow: 1; /* chat-displayがchat内の残りのスペースを埋める */
+    overflow-x: hidden;
+    overflow-y: auto; /* スクロールをchat-displayが担当 */
+    word-wrap: break-word;
+}
+.send{
+  position: relative;
+  font-size: 20px;
+  width: 80%;
+  display: block;
+  width: 70%;
+  float: right;
+  margin: 10px 20px;
+  padding: 10px 20px;
+  background: lightgreen;
+  text-align: left;
+  border-radius: 12px;
+}
+.send:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: -30px;
+  border: 12px solid transparent;
+  border-left: 20px solid lightgreen;
+}
+.receive{
+  position: relative;
+  font-size: 20px;
+  display: block;
+  width: 70%;
+  float: left;
+  margin: 10px 20px;
+  padding: 10px 20px;
+  background: white;
+  text-align: left;
+  border-radius: 12px;
+  word-wrap: break-word;
+}
+.receive:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  left: -30px;
+  border: 12px solid transparent;
+  border-right: 20px solid white;
+}
+.editor {
+    height: 120px; /* 固定 */
+    background-color: gray;
+    position: relative;
+    flex-shrink: 0; /* 縮まないように */
+    /* float要素を含む親要素にはoverflow: hidden; またはclearfixが推奨 */
+    overflow: hidden; /* ★追加：フロートを内包するため */
+}
+.chat_editor_message{
+  /* margin-left: auto; margin-right: auto; はe_mで行う */
+  height: 100px;
+  overflow: auto;
+  font-size: 20px;
+  width: 96%; /* e_m の幅に相対 */
+  border: 1px solid black;
+  background-color: white;
+  resize: none;
+  margin: 0px 2% 0px 2%; /* e_m 内の調整 */
+}
+.e_m{
+  height: 100%;
+  float: left; /* ★既存 */
+  padding: 10px 0 10px 0;
+  box-sizing: border-box; /* パディングを幅に含める */
+  /* width はJavaScriptで計算 */
+}
+.e_b{
+  width: 100px;
+  height: 100%;
+  float: left; /* ★既存 */
+  padding: 20px 0px 20px 0px;
+  box-sizing: border-box; /* パディングを幅に含める */
+}
+.img{
+  width: 80px;
+  height: 80px;
+	user-drag: none;
+	-webkit-user-drag: none;
+	-moz-user-select: none;
+}
+.post:focus{ /* .postクラスはHTMLに見当たらないので注意 */
+  width: 80px;
+  height: 80px;
+  font-size: 25px;
+  border: 1px solid;
+  color: gray;
+}
+.link_text,.link_text:focus{
+  border:none;
+  font-size: 20px;
+  width: 250px;
+  outline: none;
+  text-align: center;
+}
+.btn{
+  border: 1px solid;
+  color: black;
+  font-size: 15px;
+}
+.btn:focus{
+  border: 1px solid;
+  color: gray;
+  font-size: 15px;
+}
+
+footer {
+    width: 100%; /* 親要素 (body) の幅いっぱいに広がる */
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Flexboxでフッターを最下部に押し出す */
+    background-color: #e9ecef;
+    color: #6c757d;
+    font-size: 0.85em;
+    border-top: 1px solid #dee2e6;
+    /* フッターにposition: fixed; や float: left/right; などがあれば削除してください */
+}
+
+footer a{
+    color: #6c757d;
+}
